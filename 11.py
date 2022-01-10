@@ -17,14 +17,14 @@ def main():
             f.write(response.content)
 
     with Image.open(local_file_name) as img:
-        hidden_img1 = Image.new("RGBA", (int(img.width / 2), int(img.height / 2)), (0, 0, 0, 255))
-        hidden_img2 = Image.new("RGBA", (int(img.width / 2), int(img.height / 2)), (0, 0, 0, 255))
+        hidden_img1 = Image.new("RGBA", (img.width // 2, img.height // 2), (0, 0, 0, 255))
+        hidden_img2 = Image.new("RGBA", (img.width // 2, img.height // 2), (0, 0, 0, 255))
         for row in range(img.width):
             for column in range(img.height):
                 if (row + column) % 2 == 0:
-                    hidden_img1.putpixel((int(row / 2), int(column / 2)), img.getpixel((row, column)))
+                    hidden_img1.putpixel((row // 2, column // 2), img.getpixel((row, column)))
                 else:
-                    hidden_img2.putpixel((int(row / 2), int(column / 2)), img.getpixel((row, column)))
+                    hidden_img2.putpixel((row // 2, column // 2), img.getpixel((row, column)))
 
         hidden_img1.show("hidden_img1")
         hidden_img2.show("hidden_img2")
