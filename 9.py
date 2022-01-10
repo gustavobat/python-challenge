@@ -36,26 +36,11 @@ def main():
               110, 136, 111, 126, 113, 129, 118, 117, 128, 114, 137, 115, 146, 114, 155, 115, 158, 121, 157, 128, 156,
               134, 157, 136, 156, 136]
 
-    print(len(first))
-    print(len(second))
-
-    first_coords = [[first[i], first[i + 1]] for i in range(0, len(first), 2)]
-    second_coords = [[second[i], second[i + 1]] for i in range(0, len(second), 2)]
-
     im = Image.new("RGBA", (500, 500), (0, 0, 0, 255))
     draw = ImageDraw.Draw(im)
+    draw.polygon(first)
+    draw.polygon(second)
 
-    for i in range(len(first_coords) - 1):
-        p0 = first_coords[i]
-        p1 = first_coords[i + 1]
-        draw.line((p0[0], p0[1], p1[0], p1[1]), fill=128)
-
-    for i in range(len(second_coords) - 1):
-        p0 = second_coords[i]
-        p1 = second_coords[i + 1]
-        draw.line((p0[0], p0[1], p1[0], p1[1]), fill=128)
-
-    # write to stdout
     im.show("solution")
 
 
