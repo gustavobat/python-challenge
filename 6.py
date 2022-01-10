@@ -2,7 +2,7 @@
 
 # URL: http://www.pythonchallenge.com/pc/def/channel.html
 
-import urllib
+import urllib.request
 import zipfile
 import re
 
@@ -10,7 +10,7 @@ import re
 def main():
     resource_url = "http://www.pythonchallenge.com/pc/def/channel.zip"
     local_file_name = resource_url.split('/')[-1]
-    urllib.urlretrieve(resource_url, local_file_name)
+    urllib.request.urlretrieve(resource_url, local_file_name)
 
     zip_data = zipfile.ZipFile(local_file_name)
     files = {name[:-4]: (
