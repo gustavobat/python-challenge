@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# URL: http://www.pythonchallenge.com/pc/def/channel.html
+# URL: http://www.pythonchallenge.com/pc/def/oxygen.html
 
 from PIL import Image
 import urllib.request
