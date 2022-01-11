@@ -3,12 +3,13 @@
 # URL: http://www.pythonchallenge.com/pc/def/ocr.html
 
 from collections import Counter
+import urllib.request
+import re
 
 
 def main():
-    text_file = open("2.in", "r")
-    riddle = text_file.read()
-    text_file.close()
+    html = urllib.request.urlopen("http://www.pythonchallenge.com/pc/def/ocr.html").read().decode()
+    riddle = re.findall("<!--(.*?)-->", html, re.DOTALL)[-1]
 
     counter = Counter(riddle)
 
