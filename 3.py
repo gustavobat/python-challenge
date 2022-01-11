@@ -2,6 +2,10 @@
 
 # URL: http://www.pythonchallenge.com/pc/def/equality.html
 
+import urllib.request
+import re
+
+
 def find_subsequence(query, base):
     positions = list()
     for i in range(len(base)):
@@ -13,13 +17,12 @@ def find_subsequence(query, base):
 def main():
     target = [False, True, True, True, False, True, True, True, False]
 
-    text_file = open("3.in", "r")
-    riddle = text_file.read().replace("\n", "")
-    text_file.close()
+    html = urllib.request.urlopen("http://www.pythonchallenge.com/pc/def/equality.html").read().decode()
+    riddle = re.findall("<!--(.*)-->", html, re.DOTALL)[-1]
 
     is_upper_case = map(lambda x: True if x.isupper() else False, riddle)
 
-    positions = find_subsequence(target, is_upper_case)
+    positions = find_subsequence(target, list(is_upper_case))
     solution = ""
     for pos in positions:
         solution += riddle[pos:pos + len(target)][4]
