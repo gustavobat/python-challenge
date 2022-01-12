@@ -9,7 +9,7 @@ def shift_text(text, shift):
     letters = string.ascii_lowercase
     shifted_letters = letters[shift:] + letters[:shift]
 
-    return text.translate(string.maketrans(letters, shifted_letters))
+    return text.translate(letters.maketrans(letters, shifted_letters))
 
 
 def main():
