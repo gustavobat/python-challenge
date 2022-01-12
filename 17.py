@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
 
 # URL: http://www.pythonchallenge.com/pc/return/romance.html
-from urllib.request import Request, urlopen
-
 import requests
 import re
-from urllib.parse import unquote, quote_plus
+from urllib.parse import unquote
 import bz2
 import xmlrpc.client
 
